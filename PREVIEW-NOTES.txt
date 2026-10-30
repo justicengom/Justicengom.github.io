@@ -1,0 +1,10 @@
+FINAL WEBSITE PACKAGE
+
+Design: Deep Navy (#142B45), Ivory (#F5F1E8), Muted Gold (#B69A62), and Slate Blue (#526B80).
+Typography: Spectral for display headings and Work Sans for body text, navigation and controls.
+Appearance: light and dark themes; follows the device preference initially and remembers a manually selected theme in the browser.
+Responsive layout: desktop, tablet and mobile.
+
+Sections include About, Research, Experience, Publications, Teaching, Beyond the Lab, Activities & Social Impact, Blog, Collaboration, CV and Contact.
+
+Before public launch, review the CV and activity descriptions. Add a Spotify playlist URL if desired, replace illustrative hobby photographs with personal photographs if preferred, and publish original blog articles when ready. Blog topics are currently ideas only, not published posts.

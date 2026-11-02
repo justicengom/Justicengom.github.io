@@ -1,0 +1,101 @@
+/* Justice Tresor Ngom — website animation add-on */
+:root {
+  --animation-accent: #c9a45c;
+  --animation-duration: 650ms;
+  --animation-easing: cubic-bezier(.2, .7, .2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+/* Homepage entrance */
+#home, #hero, .hero {
+  animation: siteHeroEnter 850ms var(--animation-easing) both;
+}
+#home h1, #hero h1, .hero h1 {
+  animation: siteHeroEnter 850ms 100ms var(--animation-easing) both;
+}
+#home h2, #hero h2, .hero h2,
+#home p, #hero p, .hero p {
+  animation: siteHeroEnter 850ms 220ms var(--animation-easing) both;
+}
+@keyframes siteHeroEnter {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll reveal states are activated by animations.js */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--animation-duration) var(--animation-easing),
+              transform var(--animation-duration) var(--animation-easing);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Navigation underline */
+nav a, .nav a, .navbar a, .navigation a {
+  position: relative;
+  transition: color 220ms ease;
+}
+nav a::after, .nav a::after, .navbar a::after, .navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--animation-accent);
+  transition: width 260ms ease;
+}
+nav a:hover::after, nav a:focus-visible::after,
+.nav a:hover::after, .nav a:focus-visible::after,
+.navbar a:hover::after, .navbar a:focus-visible::after,
+.navigation a:hover::after, .navigation a:focus-visible::after {
+  width: 100%;
+}
+
+/* Card and image hover effects */
+.card, .research-card, .publication-card, .project-card,
+.activity-card, .teaching-card, .research-image {
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+.card:hover, .research-card:hover, .publication-card:hover,
+.project-card:hover, .activity-card:hover, .teaching-card:hover,
+.research-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
+}
+.profile-photo {
+  transition: transform 400ms ease, box-shadow 400ms ease;
+}
+.profile-photo:hover {
+  transform: scale(1.035);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .16);
+}
+.research-image img, .gallery-item img, .image-card img {
+  transition: transform 450ms ease;
+}
+.research-image:hover img, .gallery-item:hover img, .image-card:hover img {
+  transform: scale(1.035);
+}
+
+/* Accessibility */
+@media (hover: none) {
+  .card:hover, .research-card:hover, .publication-card:hover,
+  .project-card:hover, .activity-card:hover, .teaching-card:hover,
+  .research-image:hover, .profile-photo:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js-reveal { opacity: 1 !important; transform: none !important; }
+}
